@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ductara — Koordinationsinfrastruktur</title>
+<meta name="description" content="ductara gestaltet Koordinationsinfrastruktur in großen Organisationen: die Schicht, in der Wissen zwischen Bereichen fließt.">
+<meta name="robots" content="index, follow">
+<script>document.documentElement.className += ' js';</script>
+
+<link rel="stylesheet" href="css/bulma.min.css">
+
+<style>
+/* ------------------------------------------------------------------
+   ductara — theme layer over Bulma 1.x
+   Bulma variables are overridden first, custom components after.
+   No external requests: system font stacks only.
+------------------------------------------------------------------ */
+
+:root{
+  --paper:#E8E9E4;
+  --ink:#17191B;
+  --ink-2:#5C625E;
+  --rule:#BFC4BC;
+  --accent:#2F5D50;
+  --accent-soft:#2F5D5014;
+
+  --sans:"Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
+  --serif:Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --mono:ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+
+body{-webkit-font-smoothing:antialiased}
+
+/* --- shared type roles ------------------------------------------ */
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+}
+
+.wordmark{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:1.25rem;
+  letter-spacing:-.03em;
+}
+
+.display{
+  font-family:var(--sans);
+  font-weight:700;
+  letter-spacing:-.035em;
+  line-height:1.02;
+  font-size:clamp(2.4rem, 1.4rem + 4.4vw, 4.5rem);
+  max-width:16ch;
+  text-wrap:balance;
+}
+
+.lede{
+  font-size:clamp(1.1rem, 1rem + .5vw, 1.35rem);
+  line-height:1.5;
+}
+
+.measure{max-width:34rem}
+
+.rule-top{border-top:1px solid var(--rule)}
+
+/* --- masthead --------------------------------------------------- */
+
+.masthead{
+  border-bottom:1px solid var(--rule);
+  padding-bottom:1rem;
+}
+
+/* --- dial (signature element) ----------------------------------- */
+
+.dial{max-width:38rem;touch-action:none}
+
+.dial-labels button{
+  appearance:none;
+  background:none;
+  border:0;
+  padding:.25rem 0;
+  font-family:var(--sans);
+  font-size:clamp(.95rem,.85rem + .4vw,1.15rem);
+  font-weight:700;
+  letter-spacing:-.015em;
+  color:var(--ink-2);
+  cursor:pointer;
+  transition:color .25s ease;
+}
+.dial-labels button[aria-pressed="true"]{color:var(--ink)}
+.dial-labels button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.dial-labels button.is-right{text-align:right}
+
+.track{
+  position:relative;
+  height:3.25rem;
+  margin-top:.5rem;
+  cursor:grab;
+}
+.track:active{cursor:grabbing}
+.track:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+
+.track::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:50%;
+  height:1px;
+  background:var(--rule);
+}
+
+.tick{
+  position:absolute;top:50%;
+  width:1px;height:.85rem;
+  background:var(--rule);
+  transform:translateY(-50%);
+}
+.tick.is-left{left:0}
+.tick.is-right{right:0}
+
+.handle{
+  position:absolute;top:50%;left:0;
+  width:1.65rem;height:1.65rem;
+  margin:-.825rem 0 0 -.825rem;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 .5rem var(--accent-soft);
+  transition:left .45s cubic-bezier(.22,.61,.36,1), box-shadow .2s ease;
+}
+.dragging .handle{transition:box-shadow .2s ease;box-shadow:0 0 0 .85rem var(--accent-soft)}
+
+.gap-note{
+  position:absolute;
+  left:50%;top:calc(50% + 1.5rem);
+  transform:translateX(-50%);
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent);
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .2s ease;
+  pointer-events:none;
+}
+.in-gap .gap-note{opacity:1}
+
+.hint{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.06em;
+  color:var(--ink-2);
+}
+.js .hint.is-gone{display:none}
+
+/* --- reveal ----------------------------------------------------- */
+
+.js .reveal{
+  opacity:0;
+  transform:translateY(.5rem);
+  transition:opacity .7s ease, transform .7s ease;
+  pointer-events:none;
+}
+.js .reveal.is-shown{opacity:1;transform:none;pointer-events:auto}
+
+.claim{
+  font-family:var(--sans);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.22;
+  font-size:clamp(1.3rem,1.05rem + 1.1vw,1.85rem);
+  border-left:2px solid var(--accent);
+  padding-left:1.25rem;
+  max-width:30ch;
+}
+
+/* --- lower sections --------------------------------------------- */
+
+.col-head{
+  font-family:var(--sans);
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.col-body{color:var(--ink-2);font-size:.98rem;line-height:1.55}
+
+.contact-line{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(1.15rem,1rem + .7vw,1.5rem);
+  letter-spacing:-.02em;
+}
+
+.colophon{
+  font-family:var(--mono);
+  font-size:.72rem;
+  line-height:1.85;
+  color:var(--ink-2);
+}
+.colophon strong{color:var(--ink);font-weight:400}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+
+<body>
+<div class="container is-max-desktop px-5 py-6">
+
+  <header class="masthead level is-mobile-tablet">
+    <div class="level-left">
+      <p class="wordmark level-item">ductara</p>
+    </div>
+    <div class="level-right">
+      <p class="eyebrow level-item">Gestaltung von Koordinationsinfrastruktur</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- hero -->
+    <section class="section px-0">
+      <h1 class="display mb-5">Zusammenarbeit wird gebaut, nicht erhofft.</h1>
+      <div class="content measure">
+        <p class="lede">Jedes Programm für Ihre Zukunftsfähigkeit setzt an der Technik an oder am Individuum. Dazwischen liegt die Schicht, in der Wissen zwischen Ihren Bereichen fließt, Entscheidungen die Umsetzenden erreichen und Arbeit sich koordiniert.</p>
+        <p class="lede">Diese Schicht hat niemand gebaut.</p>
+      </div>
+    </section>
+
+    <!-- dial -->
+    <section class="section px-0 rule-top">
+      <p class="eyebrow mb-6" id="dial-question">Wohin ging Ihr letztes Digitalisierungsbudget?</p>
+
+      <div class="dial">
+        <div class="dial-labels is-flex is-justify-content-space-between">
+          <button type="button" data-stop="0" aria-pressed="false">Technik</button>
+          <button type="button" data-stop="1" class="is-right" aria-pressed="false">Arbeit am Menschen</button>
+        </div>
+
+        <div class="track" id="track"
+             role="slider" tabindex="0"
+             aria-labelledby="dial-question"
+             aria-valuemin="0" aria-valuemax="1" aria-valuenow="0"
+             aria-valuetext="Technik">
+          <span class="tick is-left" aria-hidden="true"></span>
+          <span class="tick is-right" aria-hidden="true"></span>
+          <span class="handle" id="handle" aria-hidden="true"></span>
+          <span class="gap-note" aria-hidden="true">keine Position</span>
+        </div>
+
+        <p class="hint mt-5" id="hint">Regler bewegen</p>
+      </div>
+
+      <div class="reveal content measure mt-6" id="reveal">
+        <p>Beide Antworten stimmen. Beide gehen an der Schicht vorbei, in der Wissen fließt.</p>
+        <p>Für die gibt es auf diesem Regler keine Position. In Ihrem Budget auch nicht.</p>
+        <p class="claim mt-5">Wir arbeiten an den Strukturen, in denen Wissen fließt — bevor gebaut wird, und mit den Menschen, nicht an ihnen.</p>
+      </div>
+    </section>
+
+    <!-- cost -->
+    <section class="section px-0 rule-top">
+      <h2 class="eyebrow mb-5">Was das kostet</h2>
+      <div class="content measure">
+        <p>Fehlt gestaltete Koordinationsinfrastruktur, verschwinden die Kosten nicht. Sie werden abgewälzt: auf Suchzeit, auf Doppelarbeit an Schnittstellen, die nicht verbunden sind, auf gestaute Entscheidungen ohne definierten Weg, auf Mehrarbeit, die in keinem System verbucht ist.</p>
+        <p>Deshalb wirkt gekaufte Technik nur zur Hälfte. Und deshalb kündigen die Fachkräfte, die die Improvisation zusammenhalten.</p>
+      </div>
+    </section>
+
+    <!-- the work -->
+    <section class="section px-0 rule-top">
+      <h2 class="eyebrow mb-5">Die Arbeit</h2>
+      <div class="columns is-variable is-6">
+        <div class="column">
+          <h3 class="col-head mb-2">Diagnose</h3>
+          <p class="col-body">Eine strukturierte Erhebung macht verteilte, unsichtbare Koordinationskosten sichtbar und besprechbar — als benannte Befunde, über die eine Führung entscheiden kann.</p>
+        </div>
+        <div class="column">
+          <h3 class="col-head mb-2">Gestaltung</h3>
+          <p class="col-body">Koordinationsinfrastruktur wird mit den Nutzenden entwickelt: Verantwortlichkeiten, Vorgehensweisen und Strukturen, die die diagnostizierten Lücken schließen.</p>
+        </div>
+        <div class="column">
+          <h3 class="col-head mb-2">Befähigung</h3>
+          <p class="col-body">Die Organisation übernimmt die Arbeit selbst. Dauerhafte Beratungsabhängigkeit ist kein Geschäftsmodell, sondern ein Konstruktionsfehler.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- basis -->
+    <section class="section px-0 rule-top">
+      <h2 class="eyebrow mb-5">Grundlage</h2>
+      <div class="content measure">
+        <p>Die Methodik ist fachlich begutachtet und publiziert (Touchpoint 17.1, Service Design Network, 2026) und über mehrere Jahre in einem Industrieunternehmen mit über 11.000 Mitarbeitenden erprobt. Kein weiteres Framework, sondern eine benannte Disziplin: <em>Collaboration Architecture</em>.</p>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section class="section px-0 rule-top">
+      <h2 class="eyebrow mb-5">Kontakt</h2>
+      <div class="content measure">
+        <p class="contact-line"><a href="mailto:hallo@ankeholst.de">hallo@ankeholst.de</a></p>
+        <p>ductara ist im Aufbau. Die Arbeit läuft. Erstgespräche zur Diagnose sind möglich.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="section px-0 rule-top">
+    <div class="colophon" style="max-width:30rem">
+      <p class="mb-4">
+        <strong>Impressum</strong><br>
+        Angaben gemäß § 5 DDG<br>
+        Anke Holst<br>
+        Kolumbusring 54<br>
+        18106 Rostock<br>
+        Telefon: 0176 56976824<br>
+        E-Mail: hallo@ankeholst.de
+      </p>
+      <p class="mb-4">
+        Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: Anke Holst
+      </p>
+      <p class="mb-4">
+        „.
+      </p>
+      <p>
+        <strong>Datenschutz</strong><br>
+        Diese Seite verwendet keine Cookies, kein Tracking, keine Analysewerkzeuge, keine Formulare und keine extern geladenen Schriften oder Skripte. Beim Aufruf werden ausschließlich die technisch notwendigen Zugriffsdaten durch den Hosting-Anbieter verarbeitet.
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var track   = document.getElementById('track');
+  var handle  = document.getElementById('handle');
+  var reveal  = document.getElementById('reveal');
+  var hint    = document.getElementById('hint');
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.dial-labels button'));
+  if (!track) return;
+
+  var STOPS  = [0, 1];
+  var LABELS = ['Technik', 'Arbeit am Menschen'];
+  var current = 0, dragging = false, revealed = false;
+
+  function place(r){ handle.style.left = (r * 100) + '%'; }
+
+  function setStop(i, announce){
+    current = i;
+    place(STOPS[i]);
+    track.setAttribute('aria-valuenow', String(STOPS[i]));
+    track.setAttribute('aria-valuetext', LABELS[i]);
+    buttons.forEach(function(b, n){ b.setAttribute('aria-pressed', n === i ? 'true' : 'false'); });
+    if (announce) showReveal();
+  }
+
+  function showReveal(){
+    if (revealed) return;
+    revealed = true;
+    reveal.classList.add('is-shown');
+    hint.classList.add('is-gone');
+  }
+
+  function ratioFromEvent(e){
+    var r = track.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+  }
+
+  track.addEventListener('pointerdown', function(e){
+    dragging = true;
+    track.setPointerCapture(e.pointerId);
+    track.classList.add('dragging');
+    var r = ratioFromEvent(e);
+    place(r);
+    track.classList.toggle('in-gap', r > 0.22 && r < 0.78);
+  });
+
+  track.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    var r = ratioFromEvent(e);
+    place(r);
+    track.classList.toggle('in-gap', r > 0.22 && r < 0.78);
+  });
+
+  track.addEventListener('pointerup', function(e){
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging', 'in-gap');
+    var r = ratioFromEvent(e);
+    setStop(r < 0.5 ? 0 : 1, false);
+    window.setTimeout(showReveal, 420);
+  });
+
+  track.addEventListener('pointercancel', function(){
+    dragging = false;
+    track.classList.remove('dragging', 'in-gap');
+    setStop(current, false);
+    showReveal();
+  });
+
+  track.addEventListener('keydown', function(e){
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowUp' || k === 'End'){ e.preventDefault(); setStop(1, true); }
+    else if (k === 'ArrowLeft' || k === 'ArrowDown' || k === 'Home'){ e.preventDefault(); setStop(0, true); }
+    else if (k === ' ' || k === 'Enter'){ e.preventDefault(); setStop(current === 0 ? 1 : 0, true); }
+  });
+
+  buttons.forEach(function(b, n){
+    b.addEventListener('click', function(){ setStop(n, true); });
+  });
+
+  setStop(0, false);
+})();
+</script>
+</body>
+</html>
