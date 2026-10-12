@@ -4,66 +4,208 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ductara — Collaboration Architecture</title>
-    <meta name="description" content="ductara, eine Praxis für Koordinationsinfrastruktur in Organisationen: die Schicht, in der Wissen zwischen Bereichen fließt.">
+    <meta name="description" content="ductara, eine Praxis für Koordinationsinfrastruktur: die Schicht, in der Wissen zwischen Bereichen und über Projektgrenzen hinweg fließt.">
     <link rel="stylesheet" href="bulma.min.css">
+    <style>
+      /* Nur das Nötigste. Keine externen Schriften, keine externen Skripte. */
+      .lede { max-width: 42rem; }
+      .rule { border: 0; border-top: 1px solid #dbdbdb; margin: 3rem 0; }
+      .q { font-weight: 600; }
+      .werk { color: #4a4a4a; }
+    </style>
   </head>
 
   <body>
 
+    <!-- ========== 1. EINSTIEG: die Frage an die Lesende ========== -->
     <section class="section">
       <div class="container">
 
-        <h2 class="title is-4">Wie haben Sie zuletzt versucht, Ihre Organisation zu verbessern?</h2>
+        <h2 class="title is-4 lede">Wie haben Sie zuletzt versucht, Ihre Organisation zu verbessern?</h2>
 
         <div class="buttons">
-          <button class="button is-medium" type="button" data-choice="tech">Technik eingekauft (Digitalisierung)?</button>
-          <button class="button is-medium" type="button" data-choice="menschen">An den Menschen gearbeitet (Coaching/Mindset/Resilienz)?</button>
+          <button class="button is-medium" type="button" data-choice="tech">Technik eingekauft (Digitalisierung)</button>
+          <button class="button is-medium" type="button" data-choice="menschen">An den Menschen gearbeitet (Coaching, Mindset, Resilienz)</button>
         </div>
 
-        <div id="reveal" class="content is-medium">
-          <p>Beides gut. Beides lässt aus, wie Wissen tatsächlich fließt.</p>
-          <p>Collaboration Architecture ist Organisationsarbeit, die nichts am Individuum verändern will. <br>
-            Collaboration Architecture diagnostiziert Lücken in den Strukturen, in denen Wissen fließt. <br>
-            Collaboration Architecture gestaltet Koordinations- und Wissensinfrastruktur, bevor digital zementiert wird. <br>
-            Verbindungen schaffen zwischen den Zuständigkeiten und den Menschen, die die Wissensarchitektur nutzen. <br>Übersetzen. Die Sprachen der angrenzenden IT-Disziplinen sprechen. <br>Diese Arbeit behandelt keine andere Disziplin als ihren Kern.</p>
-
-
-        <h1 class="title">Zusammenarbeit wird gebaut, nicht erhofft.</h1>
-        <p class="subtitle">ductara. Eine Praxis für <strong>Collaboration Architecture:</strong> produktneutral, nutzendenzentriert, wissenschaftlich fundiert.</p>
-
-        <div class="content mt-6">
-          <p><strong>Was macht ductara?</strong></p>
-          <ul>
-            <li><strong><a href="https://incolarc.github.io/diagnose.html">Fachwerk-Diagnose.</a></strong> Wie funktioniert Ihre Koordinationsinfrastruktur für die Menschen, die in ihr arbeiten?</li>
-            <li><strong>Baseline-Erhebung Begriffsdivergenz.</strong> Arbeit mit einer Gruppe aus diversen Fachabteilungen. Liefert eine Divergenzanalyse.</li>
-            <li><strong>Trampelpfade des Wissens.</strong> Halber oder ganzer Tag mit einem Team, je nach Größe. Liefert Einigung über eine Ebene der Koordinationsinfrastruktur.</li>
-            <li><strong>Infrastrukturdenken in der Organisationsentwicklung.</strong> Von Impulsvorträgen über Beratung und Gestaltung tragfähiger Koordinationsinfrastruktur bis zur Fähigkeit, sie selbst zu gestalten.</li>
-          </ul>
+        <div id="reveal" class="content is-medium lede">
+          <p id="answer-tech" class="answer"><strong>Die Technik ist jetzt da.</strong> Ob das Wissen dorthin kommt, wo entschieden und gearbeitet wird, hat niemand erhoben — weder vorher noch nachher.</p>
+          <p id="answer-menschen" class="answer"><strong>Die Menschen sind jetzt gestärkt.</strong> Die Struktur, in der sie arbeiten, ist dieselbe geblieben — und sie war das Problem.</p>
+          <p>Beides ist richtig. Beides lässt aus, wie Wissen tatsächlich fließt.</p>
         </div>
-        <p class="is-size-7">
-  Die Methodik entstammt der Arbeit des
-  <a href="https://incolarc.com">Institute for Collaboration Architecture</a>.
-  ductara wendet sie in Organisationen an.
-</p>
 
       </div>
     </section>
 
+    <!-- ========== 2. DIE BEHAUPTUNG ========== -->
+    <section class="section pt-0">
+      <div class="container">
+        <h1 class="title is-2 lede">Zusammenarbeit wird gebaut, nicht erhofft.</h1>
+        <p class="subtitle is-5 lede">
+          <strong>ductara</strong> ist eine Praxis für <strong>Collaboration Architecture</strong> — die Infrastruktur, über die eine Organisation sich koordiniert: Entscheidungswege, Zuständigkeiten an den Schnittstellen zwischen Bereichen, und die Frage, wie Wissen dorthin kommt, wo gearbeitet wird.
+        </p>
+        <p class="content is-medium lede">
+          Jede Organisation hat eine solche Infrastruktur. Die Frage ist nur, ob sie gestaltet wurde oder einfach entstanden ist.
+        </p>
+        <p class="content is-medium lede">
+          <strong>Wissensmanagement fragt, was abgelegt ist. Hier geht es darum, was ankommt.</strong>
+          Ein gepflegtes Archiv, das niemand zum Entscheiden benutzt, ist kein Erfolg.
+        </p>
+      </div>
+    </section>
+
+    <hr class="rule container">
+
+    <!-- ========== 3. WORAN SIE MERKEN, DASS ES SIE BETRIFFT ========== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-4 lede">Woran Sie merken, dass es Sie betrifft</h2>
+
+        <div class="content is-medium lede">
+          <p class="q">Wenn ein Projekt endet — wo liegt danach, was darin gelernt wurde, und wer holt es sich dort?</p>
+          <p class="q">Wie oft beginnt etwas Neues mit einer Recherche, einem Verfahrensweg oder einem Kontaktaufbau, den dieses Haus schon einmal gemacht hat?</p>
+          <p class="q">Wer würde es merken, wenn die Person, die ein bestimmtes Verfahren kennt, drei Wochen ausfällt?</p>
+        </div>
+
+        <div class="content is-medium lede">
+          <p>
+            Das ist kein Personalproblem und keine Frage der Sorgfalt. Es ist eine Zuständigkeitslücke, und sie hat eine typische Größe.
+          </p>
+          <p>
+            In einem Haus mit zehn Beschäftigten funktioniert die Weitergabe über den Flur. In einem Haus mit mehreren hundert gibt es eine Stelle, deren Aufgabe das ist. <strong>Dazwischen ist beides nicht der Fall:</strong> die Organisation ist über die Größe hinaus, in der Koordination nebenbei passiert, und noch nicht in der, in der jemand dafür zuständig ist. Der Mehraufwand erscheint dann als Eigenschaft der einzelnen Vorhaben statt als Befund über das Haus — und wird mit jedem weiteren Vorhaben teurer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule container">
+
+    <!-- ========== 4. WAS DUCTARA MACHT ========== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-4">Was ductara macht</h2>
+
+        <div class="columns is-multiline mt-4">
+
+          <div class="column is-half">
+            <div class="content">
+              <!-- TODO: Link auf eine ductara-eigene URL umstellen, nicht incolarc.github.io -->
+              <h3 class="title is-5"><a href="https://incolarc.github.io/diagnose.html">Fachwerk-Diagnose</a></h3>
+              <p><em>Wie funktioniert Ihre Koordinationsinfrastruktur für die Menschen, die in ihr arbeiten?</em></p>
+              <p class="werk">Strukturierte Selbsteinschätzung entlang der vier Kategorien. <strong>Sie erhalten</strong> einen Befund darüber, welche Ebene trägt und welche improvisiert wird. Geeignet als Einstieg, auch ohne Auftrag.</p>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <div class="content">
+              <h3 class="title is-5">Begriffsabgleich zwischen Fachbereichen</h3>
+              <p><em>Meinen eigentlich alle dasselbe, wenn sie dasselbe Wort benutzen?</em></p>
+              <p class="werk">Moderierte Erhebung mit einer Gruppe aus verschiedenen Fachbereichen. <strong>Sie erhalten</strong> eine Divergenzanalyse: wo dieselben Begriffe Unterschiedliches bezeichnen, und was das in Übergaben und Entscheidungen kostet.</p>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <div class="content">
+              <h3 class="title is-5">Trampelpfade des Wissens</h3>
+              <p><em>Welche Wege nimmt Wissen bei Ihnen tatsächlich — nicht laut Organigramm?</em></p>
+              <p class="werk">Ein halber oder ganzer Tag mit einem Team, je nach Größe. <strong>Sie erhalten</strong> eine gemeinsam getroffene Festlegung für eine Ebene Ihrer Koordinationsinfrastruktur — entschieden von denen, die darin arbeiten, nicht empfohlen von außen.</p>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <div class="content">
+              <h3 class="title is-5">Infrastrukturdenken in der Organisationsarbeit</h3>
+              <p><em>Und wie machen wir das künftig selbst?</em></p>
+              <p class="werk">Vom Impulsvortrag über die Gestaltung einer tragfähigen Mindeststruktur bis zur Qualifizierung Ihrer Leute, sie selbst weiterzuentwickeln. <strong>Sie erhalten</strong> eine Struktur, die Ihr Haus ohne mich fortführt.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule container">
+
+    <!-- ========== 5. WIE ICH ARBEITE / WAS NICHT ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+
+          <div class="column is-half">
+            <h2 class="title is-5">Wie ich arbeite</h2>
+            <div class="content">
+              <p><strong>Die Kategorien bleiben, die Werkzeuge sind austauschbar.</strong> Ich bin produktneutral und verkaufe keine Software. Welches System Sie betreiben, ist eine Folgefrage, nicht die erste.</p>
+              <p><strong>Erprobung statt Einführung.</strong> Wir bauen die kleinste Struktur, die trägt, und erweitern sie, wenn sie sich bewährt.</p>
+              <p><strong>Mündigkeit statt Abhängigkeit.</strong> Ein Auftrag ist erfolgreich, wenn Sie mich danach nicht brauchen.</p>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <h2 class="title is-5">Was ich nicht mache</h2>
+            <div class="content">
+              <p>Keine Systemkonfiguration, keine Migration, keine Administration. Keine Softwareempfehlung gegen Provision.</p>
+              <p>Und keine Organisationsuntersuchung, deren Ergebnis ein Bericht an eine Leitungsebene ist: Wenn die Struktur sich ändern soll, müssen die Menschen, die darin arbeiten, an der Entscheidung beteiligt sein.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule container">
+
+    <!-- ========== 6. GRUNDLAGE ========== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-4 lede">Grundlage</h2>
+        <div class="content is-medium lede">
+          <p>
+            <strong>Collaboration Architecture ist die Disziplin, die ich ausgearbeitet habe.</strong>
+            Sie ist fachlich veröffentlicht und begutachtet: <em>Collaboration Architecture — Service Design for Knowledge Work</em>, in <strong>Touchpoint — The Journal of Service Design</strong>, 2026, mit Peer Review.
+          </p>
+          <p>
+            Die eingesetzten Instrumente sind veröffentlicht. Die Leistung ist die Erhebung, die Moderation und die Auswertung — nicht der Besitz einer Methode.
+          </p>
+          <p>
+            Dahinter liegen fünfundzwanzig Jahre Arbeit an derselben Frage, in Deutschland, Großbritannien, Schweden und Nigeria: zuletzt im größten industriellen Arbeitgeber der Region, davor in einem internationalen Kundendienstzentrum, in dem die Übergabe zwischen Instanzen vertraglich zugesicherter Bestandteil der Leistung war. Ich habe beides gesehen — dass Koordination funktionieren kann, und woran sie scheitert. Der Unterschied lag nicht in den Werkzeugen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7. KONTAKT ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="box">
+          <h2 class="title is-4">Ein Gespräch, 45 Minuten</h2>
+          <div class="content is-medium">
+            <p>
+              Ich stelle die drei Fragen von oben, Sie beantworten sie. Danach wissen wir beide, ob hier etwas zu tun ist. Wenn nicht, haben Sie drei Fragen, die Ihnen auch ohne mich nützen.
+            </p>
+            <p>
+              <a href="mailto:hallo@ankeholst.de?subject=Gespr%C3%A4ch%20ductara"><strong>hallo@ankeholst.de</strong></a> &nbsp;·&nbsp; 0176 56976824
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
       <div class="container">
         <div class="content is-size-7">
 
           <p><strong>Impressum</strong><br>
           Angaben gemäß § 5 DDG<br>
-          Anke Holst<br>
-          Kolumbusring 54<br>
-          18106 Rostock<br>
+          Anke Holst — ductara<br>
+          August-Bebel-Straße 55<br>
+          18055 Rostock<br>
           Telefon: 0176 56976824<br>
           E-Mail: hallo@ankeholst.de</p>
 
           <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: Anke Holst, Anschrift wie oben</p>
 
-          <p>„ductara“ ist eine Projekt- und Markenbezeichnung. Es besteht derzeit keine eingetragene Gesellschaft.</p>
+          <p>ductara ist die Einzelpraxis von Anke Holst. „ductara“ ist eine angemeldete Marke; eine Gesellschaft besteht nicht.</p>
 
           <p><strong>Datenschutz</strong><br>
           Diese Seite verwendet keine Cookies, kein Tracking, keine Analysewerkzeuge, keine Formulare und keine extern geladenen Schriften oder Skripte. Beim Aufruf werden ausschließlich die technisch notwendigen Zugriffsdaten durch den Hosting-Anbieter verarbeitet.</p>
@@ -71,6 +213,35 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Progressive Enhancement: ohne JavaScript ist alles sichtbar.
+      // Mit JavaScript wird zunächst ausgeblendet und per Klick die passende Antwort gezeigt.
+      (function () {
+        var reveal  = document.getElementById('reveal');
+        var answers = document.querySelectorAll('#reveal .answer');
+        var buttons = document.querySelectorAll('[data-choice]');
+        if (!reveal || !buttons.length) return;
+
+        reveal.classList.add('is-hidden');
+        Array.prototype.forEach.call(answers, function (a) { a.classList.add('is-hidden'); });
+
+        Array.prototype.forEach.call(buttons, function (btn) {
+          btn.addEventListener('click', function () {
+            var choice = btn.getAttribute('data-choice');
+
+            Array.prototype.forEach.call(buttons, function (b) {
+              b.classList.toggle('is-dark', b === btn);
+            });
+            Array.prototype.forEach.call(answers, function (a) {
+              a.classList.toggle('is-hidden', a.id !== 'answer-' + choice);
+            });
+
+            reveal.classList.remove('is-hidden');
+          });
+        });
+      })();
+    </script>
 
   </body>
 </html>
