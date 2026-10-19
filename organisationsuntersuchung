@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wer nur die Einzelaufgabe misst, ignoriert die Koordinationsarbeit · ductara</title>
+<meta name="description" content="Organisationsuntersuchungen im Landkreis Vorpommern-Greifswald: was die analytische Stellenbemessung erfasst und was nicht. Eine Gesprächsgrundlage von ductara.">
+<meta property="og:title" content="Wer nur die Einzelaufgabe misst, ignoriert die Koordinationsarbeit">
+<meta property="og:description" content="Was die Stellenbemessung sieht und was nicht: Übergabe, Rückfrage und Vertretung haben keine Fallnummer.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* Seitenfarben und Schrift. Bulma bleibt die Grundlage; nur das Nötige wird überschrieben. */
+  :root {
+    --dt-paper: #FBFAF7;
+    --dt-ink: #1B1D1F;
+    --dt-muted: #4A4E52;
+    --dt-rule: #C9CCCF;
+    --dt-box: #ECEEF0;
+    --dt-box-border: #8E949A;
+    --dt-accent: #B3261E;
+    --dt-sans: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+    --dt-serif: 'IBM Plex Serif', Georgia, serif;
+  }
+
+  html, body { background: var(--dt-paper); color: var(--dt-ink); }
+  body { font-family: var(--dt-serif); }
+  /* Diese Seite ist bewusst hell, auch im Dunkelmodus des Browsers: sie ist ein Dokument. */
+  html { color-scheme: light; }
+
+  .dt-sans { font-family: var(--dt-sans); }
+  .dt-accent { color: var(--dt-accent); }
+
+  .dt-kicker {
+    font-family: var(--dt-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--dt-ink);
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+  }
+  .dt-kicker .dt-date { color: #5B5F63; }
+
+  .title.dt-headline {
+    font-family: var(--dt-sans);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--dt-ink);
+    text-wrap: balance;
+  }
+
+  .dt-lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 44rem;
+    text-wrap: pretty;
+  }
+
+  /* Abbildung: Sachgebiete und Übergänge */
+  .dt-figure {
+    background: #FFFFFF;
+    border: 1px solid var(--dt-rule);
+    padding: 1.25rem 1.25rem 1rem;
+  }
+  .dt-figure-label {
+    font-family: var(--dt-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5B5F63;
+    margin-bottom: 0.75rem;
+  }
+  .dt-units {
+    display: flex;
+    align-items: stretch;
+  }
+  .dt-unit {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--dt-box);
+    border: 1px solid var(--dt-box-border);
+    font-family: var(--dt-sans);
+    min-height: 6.5rem;
+  }
+  .dt-unit-name { font-size: 0.95rem; line-height: 1.3; }
+  .dt-unit-measure { font-size: 0.8rem; color: var(--dt-muted); }
+
+  .dt-seam {
+    flex: 0 0 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--dt-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dt-accent);
+  }
+  .dt-seam::before, .dt-seam::after {
+    content: "";
+    flex: 1;
+    width: 0;
+    border-left: 2px dashed var(--dt-accent);
+  }
+  .dt-seam span { padding: 0.25rem 0; }
+
+  .dt-sites {
+    margin-top: 0.75rem;
+    border-top: 2px dashed var(--dt-accent);
+    padding-top: 0.4rem;
+    text-align: center;
+    font-family: var(--dt-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dt-accent);
+  }
+
+  .dt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.5rem;
+    font-family: var(--dt-sans);
+    font-size: 0.8rem;
+    color: var(--dt-muted);
+  }
+  .dt-legend span { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .dt-swatch-box {
+    display: inline-block; width: 1.1rem; height: 0.75rem;
+    background: var(--dt-box); border: 1px solid var(--dt-box-border);
+  }
+  .dt-swatch-seam {
+    display: inline-block; width: 1.1rem; height: 0;
+    border-top: 2px dashed var(--dt-accent);
+  }
+
+  /* Auf dem Telefon stehen die Sachgebiete untereinander, die Übergänge werden waagerecht. */
+  @media screen and (max-width: 768px) {
+    .dt-units { flex-direction: column; }
+    .dt-unit { min-height: 0; }
+    .dt-seam {
+      flex: 0 0 auto;
+      flex-direction: row;
+      padding: 0.25rem 0;
+    }
+    .dt-seam::before, .dt-seam::after {
+      width: auto; height: 0;
+      border-left: 0;
+      border-top: 2px dashed var(--dt-accent);
+    }
+    .dt-seam span { padding: 0 0.75rem; }
+  }
+
+  /* Textspalten */
+  .dt-col-head {
+    font-family: var(--dt-sans);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    border-top: 2px solid var(--dt-ink);
+    padding-top: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .dt-col-head.is-accent { border-top-color: var(--dt-accent); }
+  .content.dt-body { font-size: 1.05rem; line-height: 1.6; color: var(--dt-ink); }
+  .content.dt-body li + li { margin-top: 0.5rem; }
+  .dt-note { font-size: 0.95rem; font-style: italic; color: var(--dt-muted); }
+
+  .dt-footer {
+    border-top: 1px solid var(--dt-ink);
+    padding-top: 0.75rem;
+    font-family: var(--dt-sans);
+    font-size: 0.9rem;
+  }
+  .dt-source { font-family: var(--dt-serif); font-size: 0.85rem; color: #5B5F63; margin-top: 0.4rem; }
+  .dt-footer a { color: var(--dt-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .dt-footer a:hover { color: var(--dt-accent); }
+
+  @media print {
+    .section { padding: 1rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <header class="dt-kicker mb-5">
+      <span>Organisationsuntersuchungen · Landkreis Vorpommern-Greifswald</span>
+      <span class="dt-date">Gesprächsgrundlage · Oktober 2026</span>
+    </header>
+
+    <h1 class="title dt-headline mb-4">Wer nur die Einzelaufgabe misst, ignoriert <span class="dt-accent">die Koordinationsarbeit.</span></h1>
+
+    <p class="dt-lead mb-6">Der Kreistag hat 2023 Organisationsuntersuchungen in allen Fachämtern beschlossen (Nr. 544-25/23). Die erste Leistungsbeschreibung, für das Bauamt mit 75 Stellen in Anklam und Pasewalk, nennt als Anlass fehlende Vertretbarkeit, steigende Überlastungsanzeigen und erhöhten Krankenstand. <strong>Das ausgeschriebene Verfahren kann die Mehrarbeit, die Ursache dieser Symptome ist, nicht erfassen.</strong></p>
+
+    <figure class="dt-figure mb-6" aria-labelledby="dt-figure-label">
+      <div class="dt-figure-label" id="dt-figure-label">Was die Stellenbemessung sieht und was nicht</div>
+
+      <div class="dt-units">
+        <div class="dt-unit">
+          <div class="dt-unit-name"><strong>SG 60.1</strong><br>Technische Bauaufsicht</div>
+          <div class="dt-unit-measure">Fallzahl × Bearbeitungszeit</div>
+        </div>
+        <div class="dt-seam"><span>Übergabe</span></div>
+        <div class="dt-unit">
+          <div class="dt-unit-name"><strong>SG 60.2</strong><br>Rechtliche Bauaufsicht · Denkmalschutz</div>
+          <div class="dt-unit-measure">Fallzahl × Bearbeitungszeit</div>
+        </div>
+        <div class="dt-seam"><span>Rückfrage</span></div>
+        <div class="dt-unit">
+          <div class="dt-unit-name"><strong>SG 60.3</strong><br>Naturschutz</div>
+          <div class="dt-unit-measure">Fallzahl × Bearbeitungszeit</div>
+        </div>
+      </div>
+
+      <div class="dt-sites">Anklam ↔ Pasewalk: Vertretung über zwei Standorte</div>
+
+      <figcaption class="dt-legend">
+        <span><span class="dt-swatch-box" aria-hidden="true"></span>erfasst: Zeit innerhalb einer Aufgabe</span>
+        <span><span class="dt-swatch-seam" aria-hidden="true"></span>nicht erfasst: keine Fallnummer, keine Bearbeitungszeit</span>
+      </figcaption>
+    </figure>
+
+    <div class="columns is-variable is-6 mb-5">
+      <div class="column">
+        <h2 class="dt-col-head">Warum das für die Konsolidierung zählt</h2>
+        <div class="content dt-body">
+          <p>Was nicht gemessen wird, erscheint in der Rechnung als Spielraum.</p>
+          <ul>
+            <li><strong>9 der 75 Stellen</strong> sind bis 31.12.2027 befristet. Tragen sie heute Vertretung und Übergabe, wirken sie unterausgelastet. Die Arbeit bleibt.</li>
+            <li>Die Kosten verschieben sich: in längere Verfahrensdauern, Widersprüche, weitere Ausfälle. Andere Haushaltszeilen als die eingesparte Stelle.</li>
+            <li>Dieselbe Methode folgt in jedem Fachamt. Die Lücke zieht sich durch die Serie.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="column">
+        <h2 class="dt-col-head is-accent">Vor der nächsten Leistungsbeschreibung</h2>
+        <div class="content dt-body">
+          <ol>
+            <li>Wie werden Übergabe, Vertretung und Abstimmung zwischen Sachgebieten und Standorten erhoben?</li>
+            <li>Wie wird verhindert, dass Stellen, die heute Vertretung tragen, als unterausgelastet erscheinen?</li>
+            <li>Werden Überlastungsanzeigen und Krankenstand vor und nach der Untersuchung gemessen?</li>
+          </ol>
+          <p class="dt-note">Die Fragen betreffen die Serie, nicht die laufende Vergabe. Organisationsuntersuchungen müssen das Richtige messen.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="dt-footer">
+      <p><strong>Anke Holst · ductara · Rostock</strong> · Organisationsarbeit an den Übergängen zwischen Stellen, Teams und Standorten</p>
+      <p>Kontakt: <a href="mailto:[E-MAIL]">[E-Mail]</a> · <a href="/impressum">Impressum</a></p>
+      <p class="dt-source">Grundlage: Leistungsbeschreibung „Organisationsuntersuchung im Amt für Bau, Natur- und Denkmalschutz“, Ziff. 2.1, 2.2, 6.1.1, 6.2.3; Kreistagsbeschluss Nr. 544-25/23 vom 27.11.2023.</p>
+    </footer>
+
+  </div>
+</section>
+</main>
+
+</body>
+</html>
